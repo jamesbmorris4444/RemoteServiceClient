@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
             timeStampRequestMessenger =  Messenger(service);
             timeStampReceiveMessenger =  Messenger(ReceiveRandomNumberHandler(this@MainActivity))
             mServiceConnected = true
-            Log.d("JIMX","connected 2")
         }
     }
 
@@ -55,8 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         bindServiceButton.setOnClickListener {
             mServiceConnection?. let {
-                var t = bindService(serviceIntent, it, Context.BIND_AUTO_CREATE)
-                Log.d("JIMX","connected 1  " + t)
+                bindService(serviceIntent, it, Context.BIND_AUTO_CREATE)
             }
         }
         printTimestampButton.setOnClickListener {
